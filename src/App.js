@@ -1,31 +1,27 @@
 import './App.css';
-import Navbar from './components/sitelayout/TopMenu/Navbar';
-import {BrowserRouter as Router, Route, Switch , Link} from 'react-router-dom';
 
+import Layout from './components/sitelayout/Layout/Layout';
 import Home from './components/pages/Home/Home';
 import Contact from './components/pages/ContactUs/Contact';
 import Cart from './components/pages/MyCart/Cart';
 import Products from './components/pages/Products/Products';
 import Search from './components/pages/Search/Search';
+import NotFound from './components/pages/NotFound/NotFound'
+
+import {Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header>
-          <Navbar/>
-        </header>
-      </div>
-
+    <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/products" component={Products}/>
-        <Route exact path="/search" component={Search}/>
-        <Route exact path="/cart" component={Cart}/>
-        <Route exact path="/contact" component={Contact}/>
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/contact" component={Contact} />
+        <Route path="*" component={NotFound}/>
       </Switch>
-
-    </Router>
+    </Layout>
   );
 }
 
