@@ -1,6 +1,6 @@
 import './App.css';
 
-import Layout from './components/sitelayout/Layout/Layout';
+import Layout from './sitelayout/Layout/Layout';
 import Home from './components/pages/Home/Home';
 import Contact from './components/pages/ContactUs/Contact';
 import Cart from './components/pages/MyCart/Cart';
