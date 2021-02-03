@@ -75,7 +75,7 @@ const Products = (props) => {
 
     return(
         <>
-        <h1>This is the Products Page</h1>
+        <h1>Our bikes</h1>
         <ProductList productList={productList} />        
         </>
     );
