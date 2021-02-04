@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classes from './SingleProduct.module.css';
+//import { useStorage } from '../../hooks/LocalStorageHook';
 
 const SingleProduct = (props) => {
 
@@ -82,12 +83,37 @@ const SingleProduct = (props) => {
 
     let objectInfo = <div className={classes.productInfo}><h1>Product Not Found</h1></div>;
 
+    //const [cart, addToCart] = useStorage('cart');
+/**
+ * localStorage.setItem("names", JSON.stringify(names));
+ * var storedNames = JSON.parse(localStorage.getItem("names"));
+ */
+
+
+    const addToCart = (cartItem) => {
+        let currentCart=JSON.parse(localStorage.getItem("cart"))||[];
+        currentCart.push(cartItem);
+        localStorage.setItem("cart", JSON.stringify(currentCart));
+    }
+
+
     if ( Object.entries(product).length !== 0 ){
         objectInfo = (
-            <div>
+            <div className={classes.productInfo}>
                 <h1>{product.headline}</h1>
                 <img src={product.image} />
                 <p>{product.description}</p>
+                <label htmlFor="quantity">How many? </label>
+                <select name="quantity" id="sel-quantity">
+                <optgroup label="Select quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="2">3</option>
+                    <option value="2">4</option>
+                    <option value="2">5</option>
+                </optgroup>
+                </select>
+                <button onClick={() => addToCart({product:product.headline})}>Add to cart</button>
             </div>
         )
     }

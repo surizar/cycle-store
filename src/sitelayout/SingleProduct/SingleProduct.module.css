@@ -1,3 +1,7 @@
 .productInfo {
     text-align: center;
 }
+
+.productInfo button {
+    margin: 0 0 0 5px;
+}
