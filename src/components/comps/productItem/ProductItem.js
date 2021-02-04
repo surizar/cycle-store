@@ -1,5 +1,6 @@
 import classes from './ProductItem.module.css'
 
+
 const ProductItem = (props) => {
 
     return (
@@ -8,6 +9,7 @@ const ProductItem = (props) => {
             <h3>{props.headline}</h3>
             <p>{props.description}</p>
             <p className={classes.priceTag}>{props.price}</p>
+            <a href={"/product/"+props.prodid}>See product</a>
         </div>
     );
 }
