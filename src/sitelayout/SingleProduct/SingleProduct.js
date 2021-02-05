@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classes from './SingleProduct.module.css';
-//import { useStorage } from '../../hooks/LocalStorageHook';
+import { useLocalStorage } from '../../hooks/LocalStorageHook';
 
 const SingleProduct = (props) => {
 
@@ -83,19 +83,7 @@ const SingleProduct = (props) => {
 
     let objectInfo = <div className={classes.productInfo}><h1>Product Not Found</h1></div>;
 
-    //const [cart, addToCart] = useStorage('cart');
-/**
- * localStorage.setItem("names", JSON.stringify(names));
- * var storedNames = JSON.parse(localStorage.getItem("names"));
- */
-
-
-    const addToCart = (cartItem) => {
-        let currentCart=JSON.parse(localStorage.getItem("cart"))||[];
-        currentCart.push(cartItem);
-        localStorage.setItem("cart", JSON.stringify(currentCart));
-    }
-
+    const [cart, addToCart] = useLocalStorage('cart');
 
     if ( Object.entries(product).length !== 0 ){
         objectInfo = (
