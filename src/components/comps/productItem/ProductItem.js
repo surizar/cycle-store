@@ -1,5 +1,5 @@
 import classes from './ProductItem.module.css'
-
+import { Link } from 'react-router-dom';
 
 const ProductItem = (props) => {
 
@@ -9,7 +9,8 @@ const ProductItem = (props) => {
             <h3>{props.headline}</h3>
             <p>{props.description}</p>
             <p className={classes.priceTag}>{props.price}</p>
-            <a href={"/product/"+props.prodid}>See product</a>
+            {/*<a href={"/product/"+props.prodid}>See product</a>*/}
+            <Link to={"/product/"+props.prodid}>See product</Link>
         </div>
     );
 }
