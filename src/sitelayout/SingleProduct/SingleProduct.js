@@ -83,7 +83,7 @@ const SingleProduct = (props) => {
 
     let objectInfo = <div className={classes.productInfo}><h1>Product Not Found</h1></div>;
 
-    const [cart, addToCart] = useLocalStorage('cart');
+    const [cartState, addToCart] = useLocalStorage('cart');
 
     if ( Object.entries(product).length !== 0 ){
         objectInfo = (
@@ -101,7 +101,7 @@ const SingleProduct = (props) => {
                     <option value="2">5</option>
                 </optgroup>
                 </select>
-                <button onClick={() => addToCart({product:product.headline})}>Add to cart</button>
+                <button onClick={ () => addToCart({productId:product.id}) }>Add to cart</button>
             </div>
         )
     }
