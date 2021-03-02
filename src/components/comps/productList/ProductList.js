@@ -1,7 +1,7 @@
 import ProductItem from "../productItem/ProductItem";
 
 const productList = (props) => {
-  let product_list = props.productList.map((product, index) => {
+  let product_list = props.products.map((product, index) => {
     return (
       <ProductItem
         key={product.id}
@@ -10,10 +10,7 @@ const productList = (props) => {
         headline={product.headline}
         description={product.description}
         price={product.price}
-        size={product.size}
-        color={product.color}
-        weight={product.weight}
-        brand={product.brand}
+        brand={product.brandid}
       />
     );
   });

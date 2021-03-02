@@ -5,3 +5,7 @@
 .productInfo button {
   margin: 0 0 0 5px;
 }
+
+.productInfo img {
+  width: 500px;
+}
